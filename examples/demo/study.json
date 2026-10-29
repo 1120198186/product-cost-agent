@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-study-v1",
+  "sourceProjectId": "demo",
+  "sourceSha256": "6650c97003a6fc48ee6963355ad4f35fb98e783f2e76fc7b1f64b1574d4a439d",
+  "researchedOn": "2026-10-29",
+  "createdAt": "2026-10-29T00:00:00Z",
+  "promptIndex": "research-runs/demo/index.html",
+  "runPath": "research-runs/demo",
+  "productUnit": "套",
+  "summary": "合成测试数据；没有执行新成本研究。",
+  "scopeSummary": "接口与固定资产演示，非真实产品成本",
+  "items": [
+    {
+      "nodeId": "C-DEMO",
+      "domain": "component",
+      "nodeSnapshot": {
+        "id": "C-DEMO",
+        "parentId": "GROUP-component",
+        "kind": "item",
+        "costDomain": "component",
+        "name": "模型部件（合成示例）",
+        "quantity": "1 件/套",
+        "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+        "status": "unverified",
+        "evidence": [
+          "DOC"
+        ],
+        "imageUrl": "/assets/demo/diagram.svg",
+        "imageLabel": "合成测试图，不是实物",
+        "imageSourceId": "DOC",
+        "active": true,
+        "costBoundary": "independent",
+        "includedIn": "",
+        "identification": {
+          "confirmedModel": "",
+          "confirmedMaker": "",
+          "confirmedSupplier": "",
+          "referenceTier": "specification",
+          "referenceModel": "测试范围",
+          "referenceMaker": "",
+          "match": "合成接口示例，非实装确认",
+          "path": [
+            "仅测试数据接口，不作实际研究"
+          ],
+          "sourceIds": [
+            "DOC"
+          ]
+        }
+      },
+      "summary": "合成接口示例，不是新研究。",
+      "critical": [
+        "不作为真实价格或模型系数使用。"
+      ],
+      "methodSteps": [
+        "仅测试数据传递与渲染"
+      ],
+      "coverage": {
+        "status": "complete",
+        "scopeText": "测试范围",
+        "missing": []
+      },
+      "estimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "件",
+        "kind": "conditional_model",
+        "quantityStrategy": "engineering_scenario",
+        "basis": "synthetic_fixture",
+        "label": "合成测试金额",
+        "note": "不是供应商报价或经验证估算",
+        "formula": "测试输入 × 1",
+        "breakdown": [],
+        "evidenceRefs": [
+          "S1"
+        ]
+      },
+      "usagePerProduct": {
+        "low": 1,
+        "high": 1,
+        "unit": "件",
+        "basis": "测试数量"
+      },
+      "perProductEstimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "套"
+      },
+      "raw": {
+        "classification": {
+          "marketType": "custom",
+          "selfDeveloped": null,
+          "basis": "测试分类，非真实产品"
+        },
+        "identity": {
+          "actualModel": "",
+          "actualSupplier": "",
+          "pricingObject": "合成对象",
+          "pricingRelation": "model",
+          "explanation": "合成演示，不能当作实际估价"
+        },
+        "comparisonGate": {
+          "status": "not_applicable",
+          "reason": "仅测试审核状态"
+        },
+        "sources": [
+          {
+            "id": "S1",
+            "title": "合成测试参数，不是报价",
+            "url": "https://example.invalid/test-fixture",
+            "kind": "model_parameter",
+            "notes": "测试输入"
+          }
+        ],
+        "parameters": [],
+        "prices": [],
+        "targets": [],
+        "spreadAnalysis": {
+          "summary": "合成参数上下限仅用于检查区间和汇总，不是价格分析结论。",
+          "drivers": [],
+          "primaryReason": "合成测试",
+          "unresolved": [],
+          "followUp": []
+        },
+        "researchRounds": []
+      }
+    },
+    {
+      "nodeId": "C-REVIEW",
+      "domain": "component",
+      "nodeSnapshot": {
+        "id": "C-REVIEW",
+        "parentId": "GROUP-component",
+        "kind": "item",
+        "costDomain": "component",
+        "name": "弱参照待审（合成示例）",
+        "quantity": "1 件/套",
+        "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+        "status": "unverified",
+        "evidence": [
+          "DOC"
+        ],
+        "imageUrl": "/assets/demo/diagram.svg",
+        "imageLabel": "合成测试图，不是实物",
+        "imageSourceId": "DOC",
+        "active": true,
+        "costBoundary": "independent",
+        "includedIn": "",
+        "identification": {
+          "confirmedModel": "",
+          "confirmedMaker": "",
+          "confirmedSupplier": "",
+          "referenceTier": "specification",
+          "referenceModel": "测试范围",
+          "referenceMaker": "",
+          "match": "合成接口示例，非实装确认",
+          "path": [
+            "仅测试数据接口，不作实际研究"
+          ],
+          "sourceIds": [
+            "DOC"
+          ]
+        }
+      },
+      "summary": "合成接口示例，不是新研究。",
+      "critical": [
+        "不作为真实价格或模型系数使用。"
+      ],
+      "methodSteps": [
+        "仅测试数据传递与渲染"
+      ],
+      "coverage": {
+        "status": "partial",
+        "scopeText": "测试范围",
+        "missing": [
+          "待人员审核弱对标"
+        ]
+      },
+      "estimate": {
+        "low": null,
+        "high": null,
+        "currency": "CNY",
+        "unit": "件",
+        "kind": "unavailable",
+        "quantityStrategy": "engineering_scenario",
+        "basis": "synthetic_fixture",
+        "label": "合成测试金额",
+        "note": "不是供应商报价或经验证估算",
+        "formula": "测试输入 × 1",
+        "breakdown": [],
+        "evidenceRefs": []
+      },
+      "usagePerProduct": {
+        "low": 1,
+        "high": 1,
+        "unit": "件",
+        "basis": "测试数量"
+      },
+      "perProductEstimate": {
+        "low": null,
+        "high": null,
+        "currency": "CNY",
+        "unit": "套"
+      },
+      "raw": {
+        "classification": {
+          "marketType": "custom",
+          "selfDeveloped": null,
+          "basis": "测试分类，非真实产品"
+        },
+        "identity": {
+          "actualModel": "",
+          "actualSupplier": "",
+          "pricingObject": "合成对象",
+          "pricingRelation": "weak",
+          "explanation": "合成演示，不能当作实际估价"
+        },
+        "comparisonGate": {
+          "status": "needs_review",
+          "reason": "仅测试审核状态"
+        },
+        "sources": [
+          {
+            "id": "S1",
+            "title": "合成测试参数，不是报价",
+            "url": "https://example.invalid/test-fixture",
+            "kind": "model_parameter",
+            "notes": "测试输入"
+          }
+        ],
+        "parameters": [],
+        "prices": [],
+        "targets": [],
+        "spreadAnalysis": {
+          "summary": "合成参数上下限仅用于检查区间和汇总，不是价格分析结论。",
+          "drivers": [],
+          "primaryReason": "合成测试",
+          "unresolved": [],
+          "followUp": []
+        },
+        "researchRounds": []
+      }
+    },
+    {
+      "nodeId": "P-DEMO",
+      "domain": "process",
+      "nodeSnapshot": {
+        "id": "P-DEMO",
+        "parentId": "GROUP-process",
+        "kind": "item",
+        "costDomain": "process",
+        "name": "成品工艺（合成示例）",
+        "quantity": "1 件/套",
+        "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+        "status": "unverified",
+        "evidence": [
+          "DOC"
+        ],
+        "imageUrl": "/assets/demo/diagram.svg",
+        "imageLabel": "合成测试图，不是实物",
+        "imageSourceId": "DOC",
+        "active": true,
+        "costBoundary": "independent",
+        "includedIn": "",
+        "identification": null
+      },
+      "summary": "合成接口示例，不是新研究。",
+      "critical": [
+        "不作为真实价格或模型系数使用。"
+      ],
+      "methodSteps": [
+        "仅测试数据传递与渲染"
+      ],
+      "coverage": {
+        "status": "complete",
+        "scopeText": "测试范围",
+        "missing": []
+      },
+      "estimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "件",
+        "kind": "conditional_model",
+        "quantityStrategy": "engineering_scenario",
+        "basis": "synthetic_fixture",
+        "label": "合成测试金额",
+        "note": "不是供应商报价或经验证估算",
+        "formula": "测试输入 × 1",
+        "breakdown": [],
+        "evidenceRefs": [
+          "S1"
+        ]
+      },
+      "usagePerProduct": {
+        "low": 1,
+        "high": 1,
+        "unit": "件",
+        "basis": "测试数量"
+      },
+      "perProductEstimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "套"
+      },
+      "raw": {
+        "classification": {
+          "marketType": "custom",
+          "selfDeveloped": null,
+          "basis": "测试分类，非真实产品"
+        },
+        "identity": {
+          "actualModel": "",
+          "actualSupplier": "",
+          "pricingObject": "合成对象",
+          "pricingRelation": "model",
+          "explanation": "合成演示，不能当作实际估价"
+        },
+        "comparisonGate": {
+          "status": "not_applicable",
+          "reason": "仅测试审核状态"
+        },
+        "sources": [
+          {
+            "id": "S1",
+            "title": "合成测试参数，不是报价",
+            "url": "https://example.invalid/test-fixture",
+            "kind": "model_parameter",
+            "notes": "测试输入"
+          }
+        ],
+        "parameters": [],
+        "prices": [],
+        "targets": [],
+        "spreadAnalysis": {
+          "summary": "合成参数上下限仅用于检查区间和汇总，不是价格分析结论。",
+          "drivers": [],
+          "primaryReason": "合成测试",
+          "unresolved": [],
+          "followUp": []
+        },
+        "researchRounds": []
+      }
+    },
+    {
+      "nodeId": "P-OPTION",
+      "domain": "process",
+      "nodeSnapshot": {
+        "id": "P-OPTION",
+        "parentId": "GROUP-process",
+        "kind": "item",
+        "costDomain": "process",
+        "name": "候选工艺（合成示例）",
+        "quantity": "1 件/套",
+        "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+        "status": "unverified",
+        "evidence": [
+          "DOC"
+        ],
+        "imageUrl": "/assets/demo/diagram.svg",
+        "imageLabel": "合成测试图，不是实物",
+        "imageSourceId": "DOC",
+        "active": false,
+        "costBoundary": "pending",
+        "includedIn": "",
+        "identification": null
+      },
+      "summary": "合成接口示例，不是新研究。",
+      "critical": [
+        "不作为真实价格或模型系数使用。"
+      ],
+      "methodSteps": [
+        "仅测试数据传递与渲染"
+      ],
+      "coverage": {
+        "status": "complete",
+        "scopeText": "测试范围",
+        "missing": []
+      },
+      "estimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "件",
+        "kind": "conditional_model",
+        "quantityStrategy": "engineering_scenario",
+        "basis": "synthetic_fixture",
+        "label": "合成测试金额",
+        "note": "不是供应商报价或经验证估算",
+        "formula": "测试输入 × 1",
+        "breakdown": [],
+        "evidenceRefs": [
+          "S1"
+        ]
+      },
+      "usagePerProduct": {
+        "low": 1,
+        "high": 1,
+        "unit": "件",
+        "basis": "测试数量"
+      },
+      "perProductEstimate": {
+        "low": 2,
+        "high": 3,
+        "currency": "CNY",
+        "unit": "套"
+      },
+      "raw": {
+        "classification": {
+          "marketType": "custom",
+          "selfDeveloped": null,
+          "basis": "测试分类，非真实产品"
+        },
+        "identity": {
+          "actualModel": "",
+          "actualSupplier": "",
+          "pricingObject": "合成对象",
+          "pricingRelation": "model",
+          "explanation": "合成演示，不能当作实际估价"
+        },
+        "comparisonGate": {
+          "status": "not_applicable",
+          "reason": "仅测试审核状态"
+        },
+        "sources": [
+          {
+            "id": "S1",
+            "title": "合成测试参数，不是报价",
+            "url": "https://example.invalid/test-fixture",
+            "kind": "model_parameter",
+            "notes": "测试输入"
+          }
+        ],
+        "parameters": [],
+        "prices": [],
+        "targets": [],
+        "spreadAnalysis": {
+          "summary": "合成参数上下限仅用于检查区间和汇总，不是价格分析结论。",
+          "drivers": [],
+          "primaryReason": "合成测试",
+          "unresolved": [],
+          "followUp": []
+        },
+        "researchRounds": []
+      }
+    }
+  ]
+}

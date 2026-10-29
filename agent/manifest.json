@@ -1,0 +1,16 @@
+{
+  "id": "product-cost-agent",
+  "version": "1.0.0",
+  "kind": "standalone-agent-definition",
+  "entry": "AGENT.md",
+  "workflow": "workflow.json",
+  "fixedAssets": "../assets",
+  "mutableKnowledge": "../knowledge",
+  "artifactsDirectory": "runs/<run-id>",
+  "capabilities": ["web-search", "read-web-and-pdf", "read-images", "calculation", "isolated-agent-turns", "artifact-storage", "html-display"],
+  "modelPolicy": {"model": "inherit-main-conversation", "reasoningEffort": "inherit-main-conversation", "silentDowngrade": false},
+  "handoff": "required-artifacts-only; no parent semantic approval between rounds",
+  "humanReview": "weak-comparison-target-adoption-only, unless user asks for other review",
+  "runtime": "host-platform-managed",
+  "note": "This is a portable definition, not a claimed native import format of a particular platform."
+}

@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "system": "prompts/round-system.md",
+  "commonRules": [
+    "rules/common.md"
+  ],
+  "stages": {
+    "decomposition-plan": {
+      "thread": "product",
+      "prompt": "prompts/decomposition-plan.md",
+      "rules": [
+        "rules/decomposition.md"
+      ],
+      "after": []
+    },
+    "decomposition": {
+      "thread": "product",
+      "prompt": "prompts/decomposition.md",
+      "rules": [
+        "rules/decomposition.md"
+      ],
+      "after": [
+        "decomposition-plan"
+      ],
+      "contract": "../assets/schemas/decomposition.schema.json"
+    },
+    "decomposition-verify": {
+      "thread": "product",
+      "prompt": "prompts/decomposition-verify.md",
+      "rules": [
+        "rules/decomposition.md"
+      ],
+      "after": [
+        "decomposition"
+      ],
+      "contract": "../assets/schemas/decomposition.schema.json"
+    },
+    "source-allocation": {
+      "thread": "product-research-planning",
+      "prompt": "prompts/source-allocation.md",
+      "rules": [
+        "rules/components.md"
+      ],
+      "after": [
+        "decomposition-verify"
+      ]
+    },
+    "component-plan": {
+      "thread": "component/<node-id>",
+      "prompt": "prompts/item-plan.md",
+      "rules": [
+        "rules/components.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "source-allocation"
+      ]
+    },
+    "component-benchmark": {
+      "thread": "component/<node-id>",
+      "prompt": "prompts/benchmark.md",
+      "rules": [
+        "rules/components.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "component-plan"
+      ],
+      "when": "needsBenchmark == true"
+    },
+    "component-pricing": {
+      "thread": "component/<node-id>",
+      "prompt": "prompts/pricing.md",
+      "rules": [
+        "rules/components.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "component-plan",
+        "component-benchmark if selected"
+      ],
+      "routeRules": true,
+      "contract": "../assets/schemas/cost-item-contract.md"
+    },
+    "component-analysis": {
+      "thread": "component/<node-id>",
+      "prompt": "prompts/analysis.md",
+      "rules": [
+        "rules/components.md",
+        "rules/quantity.md",
+        "rules/spread.md"
+      ],
+      "after": [
+        "component-pricing"
+      ],
+      "routeRules": true,
+      "contract": "../assets/schemas/cost-item-contract.md"
+    },
+    "process-plan": {
+      "thread": "process/<node-id>",
+      "prompt": "prompts/item-plan.md",
+      "rules": [
+        "rules/processes.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "decomposition-verify",
+        "relevant component scope records",
+        "source-allocation or an existing applicable allocation"
+      ]
+    },
+    "process-benchmark": {
+      "thread": "process/<node-id>",
+      "prompt": "prompts/benchmark.md",
+      "rules": [
+        "rules/processes.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "process-plan"
+      ],
+      "when": "needsBenchmark == true"
+    },
+    "process-pricing": {
+      "thread": "process/<node-id>",
+      "prompt": "prompts/pricing.md",
+      "rules": [
+        "rules/processes.md",
+        "rules/quantity.md"
+      ],
+      "after": [
+        "process-plan",
+        "process-benchmark if selected"
+      ],
+      "contract": "../assets/schemas/cost-item-contract.md"
+    },
+    "process-analysis": {
+      "thread": "process/<node-id>",
+      "prompt": "prompts/analysis.md",
+      "rules": [
+        "rules/processes.md",
+        "rules/quantity.md",
+        "rules/spread.md"
+      ],
+      "after": [
+        "process-pricing"
+      ],
+      "contract": "../assets/schemas/cost-item-contract.md"
+    }
+  },
+  "routes": {
+    "catalog": [],
+    "mass": [
+      "rules/mass.md"
+    ],
+    "pcba": [
+      "rules/pcba.md"
+    ],
+    "custom_model": []
+  },
+  "completion": "All requested independent items have saved outputs, explicit coverage and validated totals; weak comparisons may remain awaiting review without fabricated target amounts. Render in one relationship graph.",
+  "artifactHandling": "Save full prepared input/prompt first; after actual invocation record execution metadata and immutable result files. Failed rounds keep evidence, successor waits for valid required input.",
+  "delivery": {
+    "rules": [
+      "rules/presentation.md"
+    ],
+    "actions": [
+      "validate scope/references/arithmetic",
+      "assemble study preserving pending and candidate states",
+      "render with fixed assets",
+      "archive each actual round and keep manual review separate"
+    ],
+    "semanticParentApproval": false
+  },
+  "resumeAfterHumanApproval": {
+    "scope": "approved node only",
+    "stages": [
+      "pricing",
+      "analysis"
+    ],
+    "input": "host-provided approval object, person, timestamp, reason, study version and prior necessary evidence",
+    "preserve": "original project, prior turns and manual review"
+  }
+}

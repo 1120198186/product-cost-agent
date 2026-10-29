@@ -1,0 +1,347 @@
+{
+  "id": "demo",
+  "productName": "合成演示产品（不是成本案例）",
+  "model": "TEST",
+  "summary": "仅验证固定模板、数据契约和人工审核，不作为知识资产或报价。",
+  "sources": [
+    {
+      "id": "DOC",
+      "title": "合成示例数据，未执行外部研究",
+      "url": "https://example.invalid/test-fixture"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ROOT",
+      "parentId": "",
+      "kind": "root",
+      "costDomain": "component",
+      "name": "合成演示产品",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "CAT-component",
+      "parentId": "ROOT",
+      "kind": "category",
+      "costDomain": "component",
+      "name": "component",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "GROUP-component",
+      "parentId": "CAT-component",
+      "kind": "group",
+      "costDomain": "component",
+      "name": "演示分组",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "CAT-process",
+      "parentId": "ROOT",
+      "kind": "category",
+      "costDomain": "process",
+      "name": "process",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "GROUP-process",
+      "parentId": "CAT-process",
+      "kind": "group",
+      "costDomain": "process",
+      "name": "演示分组",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "CAT-overhead",
+      "parentId": "ROOT",
+      "kind": "category",
+      "costDomain": "overhead",
+      "name": "overhead",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "GROUP-overhead",
+      "parentId": "CAT-overhead",
+      "kind": "group",
+      "costDomain": "overhead",
+      "name": "演示分组",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "aggregate",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "C-DEMO",
+      "parentId": "GROUP-component",
+      "kind": "item",
+      "costDomain": "component",
+      "name": "模型部件（合成示例）",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "independent",
+      "includedIn": "",
+      "identification": {
+        "confirmedModel": "",
+        "confirmedMaker": "",
+        "confirmedSupplier": "",
+        "referenceTier": "specification",
+        "referenceModel": "测试范围",
+        "referenceMaker": "",
+        "match": "合成接口示例，非实装确认",
+        "path": [
+          "仅测试数据接口，不作实际研究"
+        ],
+        "sourceIds": [
+          "DOC"
+        ]
+      }
+    },
+    {
+      "id": "C-REVIEW",
+      "parentId": "GROUP-component",
+      "kind": "item",
+      "costDomain": "component",
+      "name": "弱参照待审（合成示例）",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "independent",
+      "includedIn": "",
+      "identification": {
+        "confirmedModel": "",
+        "confirmedMaker": "",
+        "confirmedSupplier": "",
+        "referenceTier": "specification",
+        "referenceModel": "测试范围",
+        "referenceMaker": "",
+        "match": "合成接口示例，非实装确认",
+        "path": [
+          "仅测试数据接口，不作实际研究"
+        ],
+        "sourceIds": [
+          "DOC"
+        ]
+      }
+    },
+    {
+      "id": "P-DEMO",
+      "parentId": "GROUP-process",
+      "kind": "item",
+      "costDomain": "process",
+      "name": "成品工艺（合成示例）",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": true,
+      "costBoundary": "independent",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "P-OPTION",
+      "parentId": "GROUP-process",
+      "kind": "item",
+      "costDomain": "process",
+      "name": "候选工艺（合成示例）",
+      "quantity": "1 件/套",
+      "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": false,
+      "costBoundary": "pending",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "O-0",
+      "parentId": "GROUP-overhead",
+      "kind": "item",
+      "costDomain": "overhead",
+      "name": "利润",
+      "quantity": "1 件/套",
+      "description": "",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": false,
+      "costBoundary": "pending",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "O-1",
+      "parentId": "GROUP-overhead",
+      "kind": "item",
+      "costDomain": "overhead",
+      "name": "管理",
+      "quantity": "1 件/套",
+      "description": "",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": false,
+      "costBoundary": "pending",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "O-2",
+      "parentId": "GROUP-overhead",
+      "kind": "item",
+      "costDomain": "overhead",
+      "name": "销售",
+      "quantity": "1 件/套",
+      "description": "",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": false,
+      "costBoundary": "pending",
+      "includedIn": "",
+      "identification": null
+    },
+    {
+      "id": "O-3",
+      "parentId": "GROUP-overhead",
+      "kind": "item",
+      "costDomain": "overhead",
+      "name": "研发",
+      "quantity": "1 件/套",
+      "description": "",
+      "status": "unverified",
+      "evidence": [
+        "DOC"
+      ],
+      "imageUrl": "/assets/demo/diagram.svg",
+      "imageLabel": "合成测试图，不是实物",
+      "imageSourceId": "DOC",
+      "active": false,
+      "costBoundary": "pending",
+      "includedIn": "",
+      "identification": null
+    }
+  ],
+  "issues": [
+    "全部金额为合成测试输入；不用于生产估价。"
+  ],
+  "status": "ready"
+}

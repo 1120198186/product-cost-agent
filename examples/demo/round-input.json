@@ -1,0 +1,49 @@
+{
+  "userRequest": "只为合成示例验证上下文组装，不执行真实估价。",
+  "product": {
+    "name": "合成演示产品（不是成本案例）",
+    "productUnit": "套",
+    "prior": "无实物，所有输入是测试fixture"
+  },
+  "nodeSnapshot": {
+    "id": "C-DEMO",
+    "parentId": "GROUP-component",
+    "kind": "item",
+    "costDomain": "component",
+    "name": "模型部件（合成示例）",
+    "quantity": "1 件/套",
+    "description": "合成接口示例，不代表真实产品；范围仅供测试。",
+    "status": "unverified",
+    "evidence": [
+      "DOC"
+    ],
+    "imageUrl": "/assets/demo/diagram.svg",
+    "imageLabel": "合成测试图，不是实物",
+    "imageSourceId": "DOC",
+    "active": true,
+    "costBoundary": "independent",
+    "includedIn": "",
+    "identification": {
+      "confirmedModel": "",
+      "confirmedMaker": "",
+      "confirmedSupplier": "",
+      "referenceTier": "specification",
+      "referenceModel": "测试范围",
+      "referenceMaker": "",
+      "match": "合成接口示例，非实装确认",
+      "path": [
+        "仅测试数据接口，不作实际研究"
+      ],
+      "sourceIds": [
+        "DOC"
+      ]
+    }
+  },
+  "sourceTarget": 3,
+  "sourceTargetMeaning": "粗略分配的搜索目标，不足不凑",
+  "priorResult": {
+    "route": "mass",
+    "handoff": "测试质量模型路径"
+  },
+  "knowledge": []
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["productName", "model", "summary", "sources", "nodes", "issues"],
+  "properties": {
+    "productName": {"type": "string"},
+    "model": {"type": "string"},
+    "summary": {"type": "string"},
+    "sources": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "title", "url"], "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "url": {"type": "string"}}}},
+    "nodes": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "parentId", "kind", "costDomain", "name", "quantity", "description", "status", "evidence", "imageUrl", "imageLabel", "imageSourceId", "active", "costBoundary", "includedIn", "identification"], "properties": {
+      "id": {"type": "string"}, "parentId": {"type": "string"}, "kind": {"type": "string", "enum": ["root", "category", "group", "item"]},
+      "costDomain": {"type": "string", "enum": ["component", "process", "overhead"]},
+      "name": {"type": "string"}, "quantity": {"type": "string"}, "description": {"type": "string"},
+      "status": {"type": "string", "enum": ["confirmed", "inferred", "unverified"]},
+      "evidence": {"type": "array", "items": {"type": "string"}},
+      "imageUrl": {"type": "string"}, "imageLabel": {"type": "string"}, "imageSourceId": {"type": "string"},
+      "active": {"type": "boolean"}, "costBoundary": {"type": "string", "enum": ["aggregate", "independent", "included", "pending"]}, "includedIn": {"type": "string"},
+      "identification": {"type": ["object", "null"], "additionalProperties": false,
+        "required": ["confirmedModel", "confirmedMaker", "confirmedSupplier", "referenceTier", "referenceModel", "referenceMaker", "match", "path", "sourceIds"],
+        "properties": {
+          "confirmedModel": {"type": "string"}, "confirmedMaker": {"type": "string"}, "confirmedSupplier": {"type": "string"},
+          "referenceTier": {"type": "string", "enum": ["specification", "exact_model_supplier", "exact_model", "similar_part", "benchmark_product", "performance_benchmark"]},
+          "referenceModel": {"type": "string"}, "referenceMaker": {"type": "string"}, "match": {"type": "string"},
+          "path": {"type": "array", "items": {"type": "string"}}, "sourceIds": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }}},
+    "issues": {"type": "array", "items": {"type": "string"}}
+  }
+}

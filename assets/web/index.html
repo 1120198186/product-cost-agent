@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>成本拆解 Agent · 成本工作台</title>
+  <link rel="stylesheet" href="/static/style.css?v=14">
+  <link rel="stylesheet" href="/static/cost-detail.css?v=3">
+  <script src="/static/cost-detail.js?v=7" defer></script>
+  <script src="/static/app.js?v=18" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">拆</span><div><strong>成本拆解 Agent</strong><small>结构 · 部件 · 成品工艺</small></div></div>
+    <nav aria-label="主导航"><button id="nav-home" class="nav active">＋ 新建分析</button><button id="nav-projects" class="nav">▦ 项目</button><button id="nav-assets" class="nav">◈ 资产库</button></nav>
+    <div class="side-note"><span class="stage">COST WORKSPACE</span><p>以一级成本项为单位，审阅估价、对标和价格来源。</p><small>结构识别与成本研究分别保存，在同一工作台审阅。</small></div>
+  </aside>
+  <main>
+    <header class="topbar"><span id="breadcrumb">工作台 / 新建分析</span><span class="phase">COST ANALYSIS</span></header>
+    <section id="home" class="page home-page">
+      <div class="hero"><span class="eyebrow">COST BREAKDOWN WORKSPACE</span><h1>从产品名称，<br>走到可信的拆解结构。</h1><p>告诉 Agent 你想拆解的产品，以及已知的型号、规格或采购线索。它会核对资料，标出确认、推断和待核的组成，供你修订。</p></div>
+      <form id="start-form" class="intake"><label for="product">产品名称或型号</label><input id="product" required placeholder="输入产品名称或型号" maxlength="160"><label for="prior">已知信息 <span>可选</span></label><textarea id="prior" rows="5" maxlength="6000" placeholder="例如：按单台相机本体拆解；已知供应商、版本、规格、内部照片链接……"></textarea><div class="intake-foot"><small>研究会在后台运行，资料不足的地方保留待核状态。</small><button class="primary" type="submit">开始拆解 →</button></div></form>
+
+    </section>
+    <section id="projects-page" class="page hidden"><div class="section-head"><div><span class="eyebrow">PROJECTS</span><h1>项目</h1><p>打开当前产品的关系图和成本资料。</p></div></div><div id="project-list" class="project-list"></div></section>
+    <section id="assets-page" class="page hidden"><div class="section-head"><div><span class="eyebrow">KNOWLEDGE ASSETS</span><h1>资产库</h1><p>经你明确录入的资料会在后续拆解时提供参考。项目中的推断不会自动成为共享规则。</p></div></div><div id="asset-list" class="asset-list"></div><form id="asset-form" class="asset-form"><h2>新增资料</h2><div class="form-grid"><label>标题<input name="title" required></label><label>类型<input name="kind" placeholder="产品资料 / 工艺记录 / 经验"></label></div><label>内容<textarea name="content" required rows="4"></textarea></label><label>来源链接<input name="url" type="url" placeholder="https://..."></label><button class="primary" type="submit">保存到资产库</button></form></section>
+    <section id="project-page" class="page project-page hidden">
+      <div id="project-loading" class="loading hidden"><div class="spinner"></div><h2>正在查找产品资料并形成拆解树</h2><p>正在依次完成资料规划、拆分和验证，完成后页面自动更新。</p></div>
+      <div id="project-failed" class="error-box hidden"></div>
+      <div id="project-content" class="hidden"><div class="project-header"><div><span class="eyebrow">PRODUCT COST WORKSPACE</span><h1 id="project-title"></h1><p id="project-summary"></p></div><div class="project-actions"><span id="save-state"></span><button id="save-project" class="subtle">保存结构修改</button></div></div>
+        <div id="cost-overview" class="cost-overview"></div>
+        <div id="cost-load-error" class="error-box hidden" role="status"></div>
+        <div id="graph-view"><div class="legend"><strong>关系全图</strong><span><i class="dot component"></i>物料一级成本</span><span><i class="dot process"></i>成品工艺成本</span><span><i class="dot overhead"></i>利管销研发</span><span class="legend-note">点击缩略图查看成本 · 拖动平移 · Ctrl/⌘ + 滚轮缩放</span></div>
+        <div class="graph-navigation"><label>查看范围<select id="graph-group" aria-label="选择线束或成本分组"><option value="">全部分组</option></select></label><label>查找<input id="graph-search" type="search" placeholder="名称、型号或编号" aria-label="查找图中成本项"></label><button id="graph-reset" class="subtle">显示全部</button><span id="graph-scope-note" role="status"></span></div>
+        <div class="canvas-shell"><div class="canvas-tools"><button id="zoom-in" title="放大">＋</button><button id="zoom-out" title="缩小">－</button><button id="fit" title="适应当前范围">适应</button><span id="zoom-label">100%</span></div><div id="viewport" class="viewport"><div id="world" class="world"><svg id="links" aria-hidden="true"></svg><div id="cards"></div></div></div></div>
+        </div>
+        <details class="workspace-archive"><summary>拆解依据与结构维护 <span>原始资料、待核事项和来源</span></summary><p id="original-project-summary"></p><p id="decomposition-record" class="hidden"></p><div id="pricing-scope" class="pricing-scope"></div><div class="lower-grid"><section class="info-card"><div class="card-head"><h2>待核与资料差异</h2><span id="issue-count"></span></div><ol id="issues-list"></ol><button id="edit-issues" class="subtle">编辑待核事项</button></section><section class="info-card"><div class="card-head"><h2>拆解资料来源</h2><span id="source-count"></span></div><div id="sources-list"></div><form id="source-form" class="source-form"><input name="title" required placeholder="新增来源标题"><input name="url" required type="url" placeholder="https://..."><button class="subtle" type="submit">＋ 添加来源</button></form></section></div></details>
+      </div>
+    </section>
+  </main>
+  <dialog id="detail"><div class="dialog-top"><div><span id="detail-kicker" class="eyebrow"></span><h2 id="detail-title"></h2></div><button id="detail-close" class="icon-button" aria-label="关闭">×</button></div><div class="dialog-body"><div class="detail-media"><img id="detail-image" alt=""><p id="detail-image-label"></p></div><div class="detail-fields"><div class="detail-meta" id="detail-meta"></div><label>名称<input id="edit-name"></label><label>数量 / 口径<input id="edit-quantity"></label><label>介绍<textarea id="edit-description" rows="5"></textarea></label><section id="identification-fields" class="identification-fields hidden"><h3>型号与供应来源</h3><p>分别记录已知实装信息、原件规格与选定参考，避免将待核规格或对标品当作实装型号。</p><div class="form-grid"><label>已确认的实装型号<input id="id-confirmed-model" placeholder="未公开则留空"></label><label>已确认的原厂<input id="id-confirmed-maker" placeholder="未公开则留空"></label></div><label>已确认的实际供货商<input id="id-confirmed-supplier" placeholder="未公开则留空"></label><label>参考层级<select id="id-tier"><option value="specification">原件规格（尚未选对标）</option><option value="exact_model_supplier">实装型号和供应商</option><option value="exact_model">实装型号</option><option value="similar_part">同类可采购单品</option><option value="benchmark_product">对标产品</option><option value="performance_benchmark">性能对标</option></select></label><div class="form-grid"><label>参考型号或产品<input id="id-reference-model"></label><label>参考厂商<input id="id-reference-maker"></label></div><label>可比性与重要差异<textarea id="id-match" rows="3"></textarea></label><label>查找与回退路径 <span>每行一步</span><textarea id="id-path" rows="4"></textarea></label><div id="id-sources" class="detail-evidence"></div></section><div class="form-grid"><label>确认状态<select id="edit-status"><option value="confirmed">资料明确</option><option value="inferred">推断</option><option value="unverified">待核</option></select></label><label>计价边界<select id="edit-boundary"><option value="aggregate">汇总</option><option value="independent">独立</option><option value="included">已包含</option><option value="pending">待定</option></select></label></div><label class="check"><input id="edit-active" type="checkbox"> 参与后续估算</label><label>所属分组<select id="edit-parent"></select></label><label>已包含在 <span>仅当计价边界为“已包含”</span><select id="edit-included"></select></label><label>配图地址 <span>可用项目 /assets/ 路径或 https 链接</span><input id="edit-image-url"></label><label>图注<input id="edit-image-label"></label><label>配图来源<select id="edit-image-source"></select></label><div id="detail-evidence" class="detail-evidence"></div><div class="detail-actions"><button id="add-child" class="subtle">＋ 添加子项</button><button id="delete-node" class="danger">删除节点</button><button id="apply-detail" class="primary">应用修改</button></div></div></div></dialog>
+  <dialog id="issues-dialog"><div class="dialog-top"><h2>编辑待核事项</h2><button id="issues-close" class="icon-button">×</button></div><p>每行一项。参数矛盾、未知料号及拆解边界都应保留。</p><textarea id="issues-input" rows="12"></textarea><button id="issues-apply" class="primary">应用修改</button></dialog>
+  <div id="toast" role="status"></div>
+</body>
+</html>
