@@ -21,7 +21,7 @@ def build():
         flat+='\n\n---\n\n# 文件：'+str(p.relative_to(ROOT))+'\n\n'+body
     (ROOT/'agent/COMPLETE_AGENT.md').write_text(flat,encoding='utf-8')
     fixed=files_in('assets')+[ROOT/'tools'/n for n in ('render_review.py','validate_artifacts.py','study_validation.py','project_validation.py')]
-    common=[ROOT/n for n in ('README.md','ARCHITECTURE.md','ROADMAP.md')]+files_in('docs')
+    common=[ROOT/n for n in ('.gitignore','README.md','ARCHITECTURE.md','ROADMAP.md')]+files_in('docs')
     agent=files_in('agent')+files_in('knowledge')+common+[ROOT/'tools'/n for n in ('prepare_round.py','record_round.py')]
     complete=sorted(set(agent+fixed+files_in('examples')+files_in('tests')+[Path(__file__).resolve()]))
     outputs=[]
@@ -41,7 +41,7 @@ def build():
                 if hashlib.sha256(z.read(row['path'])).hexdigest()!=row['sha256']:raise ValueError('Hash mismatch')
         outputs.append({'name':filename,'bytes':(dist/filename).stat().st_size,'sha256':hashlib.sha256((dist/filename).read_bytes()).hexdigest(),'files':len(manifest['files'])})
     (dist/'agent-complete-instructions.md').write_text(flat,encoding='utf-8')
-    (dist/'SHA256SUMS').write_text(''.join(v['sha256']+'  '+v['name']+'\n' for v in outputs),encoding='utf-8')
+    (dist/'SHA256SUMS').write_text(''.join(v['sha256']+'  '+v['name']+'\n' for v in outputs)+hashlib.sha256(flat.encode()).hexdigest()+'  agent-complete-instructions.md\n',encoding='utf-8')
     (dist/'release-manifest.json').write_text(json.dumps(outputs,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return outputs
 

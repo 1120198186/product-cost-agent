@@ -8,6 +8,8 @@
 
 先读 [`agent/AGENT.md`](agent/AGENT.md)，按 [`agent/workflow.json`](agent/workflow.json) 执行。`agent/manifest.json` 提供入口和能力清单，是本项目的可读清单，不声称是某平台的原生导入格式。
 
+平台需要一份完整文本时，可读 [`agent/COMPLETE_AGENT.md`](agent/COMPLETE_AGENT.md) 或 Release 的 `agent-complete-instructions.md`。这是同一规则的完整导入稿；实际执行仍按阶段只取相关上下文，避免每个子线程加载全部规则。
+
 GitHub Releases 提供：
 
 - **`product-cost-agent-complete-v1.0.0.zip`**：完整交付，直接把这个包交给平台最方便。
